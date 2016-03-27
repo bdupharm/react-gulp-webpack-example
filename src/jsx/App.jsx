@@ -5,7 +5,7 @@ var HelloWorld = React.createClass({
   render: function() {
     return (
       <div>
-        Hello, world! I am a GUCCIMANE.
+        Hello, world! I am a SWAGGY.
       </div>
     );
   }

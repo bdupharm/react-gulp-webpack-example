@@ -3,20 +3,24 @@ const webpack = require("webpack");
 
 
 const babelSettings = {
-    cacheDirectory: true,
-    presets: ["es2015", "react"],
+    extends: path.join(__dirname, '/.babelrc')
 };
 
 module.exports = (opts) => {
     var entry = [ "./src/jsx/App.jsx" ];
     var loaders = [ "babel?" + JSON.stringify(babelSettings) ];
+    var plugins = [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.NoErrorsPlugin()
+    ];
 
     if (opts.devserver) {
         loaders.unshift("react-hot");
         entry.unshift(
-            "webpack-dev-server/client?http://0.0.0.0:5050",
+            "webpack-dev-server/client?http://0.0.0.0:8080",
             "webpack/hot/only-dev-server" // "only" prevents reload on syntax errors
         );
+        plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
     var config = {
@@ -27,10 +31,12 @@ module.exports = (opts) => {
             publicPath: "/",
             filename: "bundle.js"
         },
-        plugins: [
-            new webpack.optimize.OccurenceOrderPlugin(),
-            new webpack.NoErrorsPlugin()
-        ],
+
+        devServer: {
+           headers: { "Access-Control-Allow-Origin": "*" }
+        },
+
+        plugins: plugins,
         module: {
             loaders: [
                 {

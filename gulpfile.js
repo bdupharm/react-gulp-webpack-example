@@ -52,10 +52,10 @@ gulp.task("serve", ["build:copy-html"], function(callback) {
         publicPath: "/",
         hot: true,
         historyApiFallback: true,
-    }).listen(8000, "0.0.0.0", function(err) {
+    }).listen(8080, "0.0.0.0", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
-        gutil.log("[webpack-dev-server]", "http://0.0.0.0:8000/");
+        gutil.log("[webpack-dev-server]", "http://0.0.0.0:8080/");
 
         // keep the server alive or continue?
         // callback();
