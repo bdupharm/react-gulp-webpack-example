@@ -1,0 +1,24 @@
+{
+  "name": "react-hot-reload-example",
+  "version": "1.0.0",
+  "description": "Hot reload example w/ webpack dev server & react hot loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdupharm/react-hot-reload-example.git"
+  },
+  "author": "Bo Du",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdupharm/react-hot-reload-example/issues"
+  },
+  "homepage": "https://github.com/bdupharm/react-hot-reload-example#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
