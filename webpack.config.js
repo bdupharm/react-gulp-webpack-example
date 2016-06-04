@@ -13,10 +13,10 @@ module.exports = (opts) => {
 
     if (opts.devserver) {
         loaders.unshift("react-hot");
-        entry.concat([
+        entry.unshift(
             "webpack-dev-server/client?http://0.0.0.0:5050",
             "webpack/hot/only-dev-server" // "only" prevents reload on syntax errors
-        ]);
+        );
     }
 
     var config = {
